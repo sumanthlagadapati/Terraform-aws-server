@@ -64,9 +64,7 @@ resource "aws_internet_gateway" "igw" {
 # Create Elastic IP for NAT Gateway
 resource "aws_eip" "nat" {
   count  = var.enable_nat_gateway ? 1 : 0
-  domain = "vpc"
-
-  tags = {
+    tags = {
     Name        = "${var.project_name}-nat-eip"
     Environment = var.environment
   }
